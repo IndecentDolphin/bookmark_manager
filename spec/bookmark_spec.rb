@@ -43,4 +43,26 @@ describe Bookmark do
       expect(bookmarks).not_to include(bookmark)
     end
   end
+
+  describe '.find' do
+    it 'finds a bookmark depending on id' do
+      bookmark = Bookmark.create('Makers', 'http://www.makersacademy.com')
+      found_vals = Bookmark.find(bookmark.id)
+      expect(found_vals.id).to eq(bookmark.id)
+      expect(found_vals.title).to eq(bookmark.title)
+      expect(found_vals.url).to eq(bookmark.url)
+    end
+  end
+
+  describe '.update' do
+    it 'updates existing bookmark' do
+      bookmark = Bookmark.create('Makers', 'http://www.makersacademy.com')
+      found_vals = Bookmark.find(bookmark.id)
+      new_title = "Makers Academy"
+      new_url = "http://academyofmakers.com"
+      updated = Bookmark.update(new_title, new_url, found_vals.id)
+      expect(updated.title).to eq(new_title)
+      expect(updated.url).to eq(new_url)
+  end
+end
 end

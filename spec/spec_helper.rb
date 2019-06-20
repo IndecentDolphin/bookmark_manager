@@ -12,6 +12,7 @@ ENV['ENVIRONMENT'] = 'test'
 Capybara.app  = BookmarkManager
 
 RSpec.configure do |config|
+  config.filter_run_when_matching :focus
   config.before(:each) do
     setup_test_database
   end
