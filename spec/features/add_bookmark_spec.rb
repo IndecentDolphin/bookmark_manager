@@ -12,9 +12,10 @@ feature 'Adding bookmarks' do
     scenario 'add new bookmartks link' do
         visit '/'
         click_link 'Add New Bookmark'
+        fill_in 'title', with: 'John Lewis'
         fill_in 'new_bookmark_field', with: 'http://www.johnlewis.com'
         click_button('submit')
-        expect(page).to have_content('http://www.johnlewis.com')
+        expect(page).to have_content('John Lewis')
     end
 
 end
