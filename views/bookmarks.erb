@@ -1,6 +1,13 @@
+<h1> My super unique Bookmarks Header </h1>
 <ul>
   <% @bookmarks.each do |bookmark| %>
-    <li><a href='<% bookmark.url %>'> <%= bookmark.title %> </li>
+    <li><a href='<% bookmark.url %>'> <%= bookmark.title %> 
+      <form action="/bookmarks/<%= bookmark.id %>/delete" method="post">
+      <input id="hidden" type="hidden" name="_method" value="delete" />
+      <input type="submit" value="delete" />
+      </form>
+    </li>
   <% end %>
 </ul>
+
 <a href='/'> Home </a>

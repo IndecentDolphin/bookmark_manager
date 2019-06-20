@@ -22,3 +22,7 @@ I would like to be able to see a list of my useful pages
 As a user,
 So that I can update my library of bookmarks,
 I would like to be able to add new bookmarks.
+
+As a User,
+So that I can remove a bookmark
+I would like to be able to delete a bookmark.

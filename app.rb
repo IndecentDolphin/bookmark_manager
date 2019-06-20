@@ -1,7 +1,10 @@
 require 'sinatra/base'
 require_relative './lib/bookmark.rb'
 
+
 class BookmarkManager < Sinatra::Base
+  enable :method_override
+  
   get '/' do
     erb :index
   end
@@ -19,6 +22,12 @@ class BookmarkManager < Sinatra::Base
     @new_bookmark = params[:new_bookmark]
     @title = params[:title]
     Bookmark.create(@title, @new_bookmark)
+    redirect '/bookmarks'
+  end
+
+  delete '/bookmarks/:id/delete' do
+    bookmark_id = params[:id]
+    Bookmark.delete(bookmark_id)
     redirect '/bookmarks'
   end
 
