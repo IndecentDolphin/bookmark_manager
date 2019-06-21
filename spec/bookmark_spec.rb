@@ -9,7 +9,6 @@ describe Bookmark do
       Bookmark.create('Google', 'http://www.google.com')
 
       bookmarks = Bookmark.all
-      p bookmarks
       expect(bookmarks.length).to eq 3
       expect(bookmarks.first).to be_a Bookmark
       expect(bookmarks.first.id).to eq bookmark.id

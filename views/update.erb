@@ -2,10 +2,12 @@
 <h1> Update your bookmark </h1>
 <form action="/bookmarks/<%= @uniquebookmark.id %>" method='post'>
   <input id="hidden" type="hidden" name="_method" value="patch" />
-  <input type='text' id='url' name='url' />
-  <input type='text' id='title' name='title' />
+  <label >
+  <input type='text' id='title' name='title' placeholder="Title" />
+  <input type='text' id='url' name='url' placeholder="URL" />
   <br>
   <br>
   <input type='submit' value='update'>
 </form>
+<a href='/'> Back </a>
 </div>
