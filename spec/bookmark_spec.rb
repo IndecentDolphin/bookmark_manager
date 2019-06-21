@@ -3,12 +3,15 @@ require 'bookmark'
 describe Bookmark do
   describe '.all' do
     it 'returns a list of bookmarks' do
-      
+      # Setup the test database becuase the script is childish
+      DatabaseConnection.setup('bookmark_manager_test')
+
       bookmark = Bookmark.create('Makers', 'http://www.makersacademy.com')
       Bookmark.create('D.O.S', 'http://www.destroyallsoftware.com')
       Bookmark.create('Google', 'http://www.google.com')
 
       bookmarks = Bookmark.all
+
       expect(bookmarks.length).to eq 3
       expect(bookmarks.first).to be_a Bookmark
       expect(bookmarks.first.id).to eq bookmark.id
@@ -19,6 +22,9 @@ describe Bookmark do
   
   describe '.create' do
      it 'adds a new bookmark' do
+      # Setup the test database becuase the script is childish
+
+      DatabaseConnection.setup('bookmark_manager_test')
       bookmark = Bookmark.create('Test Bookmark', 'http://testbookmark.com')
       persisted_data = PG.connect(dbname: 'bookmark_manager_test').query("SELECT * FROM bookmarks WHERE id = #{bookmark.id};")
 

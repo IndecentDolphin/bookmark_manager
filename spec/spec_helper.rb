@@ -4,10 +4,11 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'simplecov'
-require 'rubocop'
 
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
+
+require_relative './../scripts/database_connection_setup.rb'
 
 Capybara.app  = BookmarkManager
 

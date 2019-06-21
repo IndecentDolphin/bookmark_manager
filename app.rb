@@ -1,6 +1,6 @@
 require 'sinatra/base'
-require_relative './lib/bookmark.rb'
 require_relative './scripts/database_connection_setup.rb'
+require_relative './lib/bookmark.rb'
 
 
 
